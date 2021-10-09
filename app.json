@@ -1,0 +1,25 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/home/home/home",
+    "pages/home/mine/home/home",
+    "pages/home/mine/Contact/Contact",
+    "pages/home/mine/Chat/Chat",
+    "pages/home/item/teamWork/teamWork",
+    "pages/home/item/makeFriend/matching/matching",
+    "pages/home/item/makeFriend/bar/bar",
+    "pages/home/item/makeFriend/top/top",
+    "pages/home/item/makeFriend/add/add",
+    "pages/home/item/makeFriend/top/likeTop/likeTop"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#39b54a",
+    "navigationBarTitleText": "天山校园墙",
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "white"
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
+  },
+  "sitemapLocation": "sitemap.json"
+}

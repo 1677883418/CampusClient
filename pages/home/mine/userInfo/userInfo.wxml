@@ -1,0 +1,74 @@
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+    <view slot="backText">我的</view>
+    <view slot="content">个人信息</view>
+</cu-custom>
+
+        <!--身份认证-->
+<view class="cu-list menu sm-border card-menu margin-top margin-bottom">
+    <view class="cu-item" wx:if="{{isCard===false}}">
+        <view class="title">身份认证</view>
+        <text class="cu-btn bg-mauve light text-center round">未认证</text>
+        <button bindtap="isCard" class="cu-btn bg-green shadow round">点击认证</button>
+    </view>
+    <view class="cu-item" wx:else>
+        <view class="title">身份认证</view>
+        <text class="cu-btn bg-green text-center light round ">已认证</text>
+    </view>
+
+    <!--学生认证-->
+    <view class="cu-item" wx:if="{{isStudent===false}}">
+        <view class="title">学生认证</view>
+        <text class="cu-btn bg-mauve text-center light round ">未认证</text>
+        <button bindtap="isStudent" class="cu-btn bg-green shadow round">点击认证</button>
+    </view>
+    <view class="cu-item" wx:else>
+        <view class="title">学生认证</view>
+        <text class="cu-btn bg-green text-center light round ">已认证</text>
+    </view>
+
+    <!--昵称-->
+    <view class="cu-item">
+        <view class="content">
+            <text class="cuIcon-emojifill text-mauve"></text>
+            <text class="text-gray">昵称</text>
+        </view>
+        <view class="action">
+            <input class="text-gray text-right" value="肥羊"></input>
+        </view>
+    </view>
+
+    <!--头像-->
+    <view class="cu-item arrow" bindtap="changeAvatar">
+        <view class="content">
+            <text class="cuIcon-camerafill text-pink"></text>
+            <text class="text-grey">头像</text>
+        </view>
+        <view class="action">
+                <image src="{{avatar_url}}" class="cu-avatar round"></image>
+        </view>
+    </view>
+
+    <!--手机号-->
+    <view class="cu-item">
+        <view class="content">
+            <text class="cuIcon-phone text-orange"></text>
+            <text class="text-grey">手机号</text>
+        </view>
+        <view class="action">
+            <view class="cu-capsule radius">
+                <view class="cu-tag bg-blue">
+                    +86
+                </view>
+                <input class="cu-tag line-blue" value="15009010847"></input>
+                <view class="cu-tag line-blue">
+                    中国大陆
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="text-center">
+    <button class="cu-btn bg-brown round" bindtap="isSubmit">
+        保存修改
+    </button>
+</view>

@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "matching": "/pages/home/item/makeFriend/matching/matching",
+    "dynamic": "/pages/home/item/makeFriend/dynamic/dynamic",
+    "top": "/pages/home/item/makeFriend/top/top",
+    "mine": "/pages/home/mine/home/home"
+  }
+}

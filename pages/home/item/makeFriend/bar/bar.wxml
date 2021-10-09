@@ -1,0 +1,35 @@
+<dynamic wx:if="{{PageCur==='dynamic'}}"></dynamic>
+<matching wx:if="{{PageCur==='matching'}}"></matching>
+<top wx:if="{{PageCur==='top'}}"></top>
+<mine wx:if="{{PageCur==='mine'}}"></mine>
+
+        <!--任务栏-->
+<view class="cu-bar tabbar bg-white action shadow foot">
+    <!--动态-->
+    <view class="action" bindtap="NavChange" data-cur="dynamic">
+        <view class="{{PageCur==='dynamic'?'text-green':'text-gray'}} cuIcon-comment"></view>
+        <text class="text-gray">动态</text>
+    </view>
+    <!--匹配-->
+    <view class="action" bindtap="NavChange" data-cur="matching">
+        <view class="{{PageCur==='matching'?'text-cyan':'text-gray'}} cuIcon-same  text-center"></view>
+        <text class="text-gray">匹配</text>
+    </view>
+    <!--发布-->
+    <view class="action add-action" bindtap="toAdd">
+        <button class="cu-btn cuIcon-add bg-purple shadow" role="button" aria-disabled="false"></button>
+        <text class="text-gray">发布</text>
+    </view>
+    <!--排行榜-->
+    <view class="action grid col-1" bindtap="NavChange" data-cur="top">
+        <view class="{{PageCur==='top'?'text-orange':'text-gray'}}  cuIcon-selectionfill text-center"></view>
+        <text class="text-gray">排行榜</text>
+    </view>
+    <!--我的-->
+    <view class="action" bindtap="NavChange" data-cur="mine">
+        <view class="{{PageCur==='mine'?'text-mauve':'text-gray'}} cuIcon-people text-center"></view>
+        <text class="text-gray">我的</text>
+    </view>
+</view>
+
+

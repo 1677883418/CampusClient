@@ -1,0 +1,55 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+    <view solt="backText">喜欢排行榜</view>
+    <view slot="content">匹配</view>
+</cu-custom>
+<scroll-view scroll-y class="scrollPage">
+    <view class="cu-bar"></view>
+    <text class="cu-btn bg-purple text-center shadow round">本月最多喜欢</text>
+    <view class="tower-swiper" bindtouchmove="towerMove" bindtouchstart="towerStart" bindtouchend="towerEnd">
+        <view class="tower-item {{item.zIndex===1?'none':''}}" wx:for="{{swiperList}}" wx:key
+              style="--index:{{item.zIndex}};--left:{{item.mLeft}}">
+            <view class="swiper-item">
+                <image src="{{item.dynamicImage}}" mode="aspectFill" wx:if="{{item.type==='image'}}"></image>
+                <video src="{{item.dynamicImage}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}"
+                       objectFit="cover" wx:if="{{item.type==='video'}}"></video>
+            </view>
+        </view>
+    </view>
+    <!--动态-->
+<!--    <view class="cu-card dynamic margin-bottom-xl">
+        <view class="cu-item shadow" wx:for="{{swiperList}}">
+            <view class="cu-list menu-avatar">
+                &lt;!&ndash;信息栏&ndash;&gt;
+                <view class="cu-item">
+                    &lt;!&ndash;头像&ndash;&gt;
+                    <view class="cu-avatar round lg"
+                          style="background-image:url({{item.avatarUrl}});"></view>
+                    &lt;!&ndash;昵称&ndash;&gt;
+                    <view class="content flex-sub">
+                        <view>
+                            <view class="cuIcon-male text-blue" wx:if="{{item.sex}}"></view>
+                            <view class="cuIcon-female text-red" wx:else></view>
+                            <view class="text-grey">{{item.nikeName}}</view>
+                        </view>
+                        &lt;!&ndash;时间&ndash;&gt;
+                        <view class="text-gray text-sm flex justify-start">
+                            <view class="cuIcon-time"></view>
+                            <view class="text-gray text-sm">{{item.dynamicTime}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            &lt;!&ndash;文本框&ndash;&gt;
+            <view class="text-content text-center">
+                <text class=" text-Abc">{{item.dynamicText}}</text>
+            </view>
+            <view class="grid flex-sub padding-lr">
+                <view class="bg-img only-img"
+                      style="background-image:url({{item.dynamicImage}});"></view>
+            </view>
+            <view class="text-gray text-lg text-center padding">
+                <text class="cuIcon-likefill text-xl  margin-lr-xs"></text>{{item.dynamicLike}}
+            </view>
+        </view>
+    </view>-->
+</scroll-view>

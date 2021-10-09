@@ -1,0 +1,50 @@
+<cu-custom bgColor="bg-pink light" isBack="{{true}}">
+    <view slot="backText">交友</view>
+    <view slot="content">发布动态</view>
+</cu-custom>
+        <!--发布页面-->
+<form>
+    <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+        <!--文本提示框-->
+        <view class="cu-item shadow text-center">
+            <view class="text-xl">
+                <text class="cuIcon-edit text-purple"></text>
+                <text class=" text-grey">文字</text>
+            </view>
+            <text>✒纸短情长✒</text>
+        </view>
+        <!--文本输入框-->
+        <view class="cu-item shadow ">
+            <textarea bindinput="textareaAInput" maxlength="-1" placeholder="多行文本输入框"></textarea>
+        </view>
+        <!--图片提示框-->
+        <view class="cu-item shadow">
+            <view class="text-xl">
+                <text class="cuIcon-pic text-orange"></text>
+                <text class=" text-grey">图片</text>
+            </view>
+            <text>📷分享美好生活📷</text>
+        </view>
+        <view class="cu-item shadow">
+            <view class="grid col-1 grid-square flex-sub">
+                <view class="grid col-4 grid-square flex-sub">
+
+                    <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage"
+                          data-url="{{imgList[index]}}">
+                        <image src='{{imgList[index]}}' mode='aspectFill'></image>
+                        <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+                            <text class="cuIcon-close"></text>
+                        </view>
+                    </view>
+                    <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<4}}">
+                        <text class="cuIcon-cameraadd"></text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="cu-bar"></view>
+        <view class="cu-bar btn-group">
+            <button class="cu-btn bg-green shadow-blur round lg" role="button" aria-disabled="false">上传</button>
+        </view>
+    </view>
+</form>

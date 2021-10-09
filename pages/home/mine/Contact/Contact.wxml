@@ -1,0 +1,53 @@
+<cu-custom bgImage="https://z3.ax1x.com/2021/10/05/4jg3qI.jpg" isBack="{{true}}">
+    <view slot="backText">我的</view>
+    <view slot="content">联系人</view>
+</cu-custom>
+<view class="cu-bar bg-white search fixed margin-top" style="top:{{CustomBar}}px;">
+    <view class="search-form round">
+        <text class="cuIcon-search"></text>
+        <input type="text" placeholder="输入搜索的关键词" confirm-type="search"></input>
+    </view>
+    <view class="action">
+        <button class="cu-btn bg-gradual-green shadow-blur round">搜索</button>
+    </view>
+</view>
+<scroll-view scroll-y class="indexes margin-top" scroll-into-view="indexes-{{listCurID}}"
+             style="height:calc(100vh - {{CustomBar}}px - 50px)" scroll-with-animation="true" enable-back-to-top="true">
+    <block wx:for="{{list}}" wx:key>
+        <view class="padding indexItem-{{list[index]}}" id="indexes-{{list[index]}}" data-index="{{list[index]}}">
+            {{list[index]}}
+        </view>
+        <view class="cu-list menu-avatar no-padding">
+
+            <view class="cu-item" wx:for="{{2}}" wx:key wx:for-index="sub" bindtap="changePage">
+<!--                <navigator url="/pages/dynamic/mine/Chat/Chat">-->
+                    <view class="cu-avatar round lg">
+                        <view wx:if="{{sub%2}}" class="cu-tag badge cuIcon-female  bg-pink"></view>
+                        <view wx:else class="cu-tag badge cuIcon-male bg-blue"></view>
+                        {{list[index]}}
+                    </view>
+                    <view class="content">
+                        <view class="text-grey">{{list[index]}}
+                            <text class="text-abc">{{list[sub]}}</text>君
+                        </view>
+                        <view class="text-gray text-sm">
+                            有{{sub + 2}}条未读信息哟~
+                        </view>
+                    </view>
+<!--                </navigator>-->
+            </view>
+        </view>
+    </block>
+</scroll-view>
+<view class="indexBar" style="height:calc(100vh - {{CustomBar}}px - 50px)">
+    <view class="indexBar-box" bindtouchstart="tStart" bindtouchend="tEnd" catchtouchmove="tMove">
+        <view class="indexBar-item" wx:for="{{list}}" wx:key id="{{index}}" bindtouchstart="getCur"
+              bindtouchend="setCur">{{list[index]}}
+        </view>
+    </view>
+</view>
+        <!--选择显示-->
+<view hidden="{{hidden}}" class="indexToast">
+    {{listCur}}
+</view>
+<text></text>

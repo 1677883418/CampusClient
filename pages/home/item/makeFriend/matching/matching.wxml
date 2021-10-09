@@ -1,0 +1,16 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+    <view slot="backText">首页</view>
+    <view slot="content">匹配</view>
+</cu-custom>
+<view class="cu-card">
+    <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+        <view class="cu-item arrow" wx:for="{{matchingList}}">
+            <navigator class="content" url="/pages/home/item/makeFriend/top/{{item.url}}/{{item.url}}"
+                       hover-class="none">
+                <text class="cuIcon-{{item.icon}} text-{{item.color}}"></text>
+                <text class=" text-grey">{{item.name}}</text>
+            </navigator>
+        </view>
+
+    </view>
+</view>
