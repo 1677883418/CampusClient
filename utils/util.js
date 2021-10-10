@@ -1,7 +1,7 @@
 const util = {
-    API: 'https://http://localhost:8080/',
+    API: 'http://localhost:8080/',
 
-    login(cb) {
+/*    login(cb) {
         var that = this;
         wx.login({
             success(res) {
@@ -18,7 +18,7 @@ const util = {
                 })
             }
         })
-    },
+    },*/
     //post请求
     post(url, data, success, fail) {
         this.http('POST', url, data, success, fail)
@@ -39,7 +39,7 @@ const util = {
         };
         let _method = method || 'POST';
         let _header = {
-            'content-type': 'application/x-www-form-urlencoded'
+            'content-type': 'application/json'
         };
 
         if (_method.toUpperCase() == 'GET') {

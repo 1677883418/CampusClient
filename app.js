@@ -19,24 +19,25 @@ App({
                 }
             }
         })
-    },
 
-    // 登录
-    login(cb) {
+
+        // 登录
         wx.login({
             success(res) {
-                com.post('User/login', {js_code: res.code}, function (res) {
+                console.log(res.code)
+                com.post('User/login', {jsCode: res.code}, function (res) {
+                    console.log(res)
                     //是否获取到用户的openid
                     if (res.code === 1) {
                         //会话token
                         wx.setStorageSync("token", res.token)
                         wx.setStorageSync("user", res.msg)
+                        console.log(res.token)
                     }
                 })
             }
         })
     },
-
 
     globalData:
         {

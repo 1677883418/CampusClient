@@ -2,18 +2,18 @@
 <mine wx:if="{{PageCur==='mine'}}"></mine>
 
 <view class="cu-bar tabbar bg-white shadow foot">
-    <view class="action" bindtap="NavChange" data-cur="home">
-        <view class='cuIcon-cu-image'>
-            <image src="/images/tabbar/home{{PageCur==='home'?'_cur':''}}.png"></image>
-        </view>
-        <view class="{{PageCur==='home'?'text-green':'text-gray'}}">首页</view>
+  <view class="action" bindtap="NavChange" data-cur="home">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/tabbar/home{{PageCur==='home'?'_cur':''}}.png"></image>
     </view>
+    <view class="{{PageCur==='home'?'text-green':'text-gray'}}">首页</view>
+  </view>
 
-    <view class="action" bindtap="NavChange" data-cur="mine">
-        <view class='cuIcon-cu-image'>
-            <image src="/images/tabbar/mine{{PageCur==='mine'?'_cur':''}}.png"></image>
-        </view>
-        <view class="{{PageCur==='mine'?'text-green':'text-gray'}}">我的</view>
+  <view class="action" bindtap="NavChange" data-cur="mine">
+    <view class='cuIcon-cu-image'>
+      <image src="/images/tabbar/mine{{PageCur==='mine'?'_cur':''}}.png"></image>
     </view>
+    <view class="{{PageCur==='mine'?'text-green':'text-gray'}}">我的</view>
+  </view>
 
 </view>
