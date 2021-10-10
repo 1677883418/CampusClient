@@ -4,7 +4,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        msg: {},
+        userInfo: {},
         temp: false,
         isCard: false,
         isStudent: false,
@@ -23,27 +23,17 @@ Page({
             showCancel: false
         })
     },
-    changeAvatar() {
+    ChooseImage() {
         wx.chooseImage({
-            count: 1,
-            sizeType: ['compressed'],
-            sourceType: ['album', 'camera'],
-            success: function (res) {
-                wx.compressImage({
-                    src: res.tempFilePaths[0], // 图片路径
-                    quality: 50,
-                    success(res) {
-                        let that = this;
-                        that.setData({
-                            'avatar_url': res.tempFilePath,
-                            temp: true
-                        })
-                    },
-                    fail(res) {
-                        console.log(res)
-                    }
+            count: 1, //默认9
+            sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
+            sourceType: ['album', 'camera'], //从相册选择
+            success: (res) => {
+                this.setData({
+                    avatarUrl: res.tempFilePaths
+
                 })
-            },
+            }
         })
     },
     onLoad: function () {

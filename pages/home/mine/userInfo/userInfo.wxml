@@ -38,13 +38,13 @@
     </view>
 
     <!--头像-->
-    <view class="cu-item arrow" bindtap="changeAvatar">
+    <view class="cu-item arrow" bindtap="ChooseImage">
         <view class="content">
             <text class="cuIcon-camerafill text-pink"></text>
             <text class="text-grey">头像</text>
         </view>
         <view class="action">
-                <image src="{{avatar_url}}" class="cu-avatar round"></image>
+                <image src="{{this.avatar_url}}" class="cu-avatar round"></image>
         </view>
     </view>
 
