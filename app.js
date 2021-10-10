@@ -1,18 +1,12 @@
 // app.js
+let com = require('./utils/util.js')
 App({
+    com: com,
     onLaunch() {
         // 展示本地存储能力
         const logs = wx.getStorageSync('logs') || []
         logs.unshift(Date.now())
         wx.setStorageSync('logs', logs)
-
-        // 登录
-        wx.login({
-            success: res => {
-                console.log(res.code)
-                // 发送 res.code 到后台换取 openId, sessionKey, unionId
-            }
-        })
         wx.getSystemInfo({
             success: e => {
                 this.globalData.StatusBar = e.statusBarHeight;
@@ -26,6 +20,23 @@ App({
             }
         })
     },
+
+    // 登录
+    login(cb) {
+        wx.login({
+            success(res) {
+                com.post('User/login', {js_code: res.code}, function (res) {
+                    //是否获取到用户的openid
+                    if (res.code === 1) {
+                        //会话token
+                        wx.setStorageSync("token", res.token)
+                        wx.setStorageSync("user", res.msg)
+                    }
+                })
+            }
+        })
+    },
+
 
     globalData:
         {

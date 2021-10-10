@@ -1,36 +1,36 @@
 <scroll-view scroll-y class="scrollPage">
     <!--头像+id-->
     <view class="UCenter-bg">
-        <image src="/images/logo.png" class="cu-avatar  round margin-left" mode="widthFix"></image>
-        <view class="text-xl margin-top text-black">天大校园墙
-            <text class="text-df text-black">v1.0</text>
-        </view>
+        <image src="{{user.avatarUrl}}" class="cu-avatar  round margin-left" mode="widthFix"></image>
+        <view class="text-xl margin-top text-black">{{user.nikeName}}</view>
         <view class="cu-btn margin-top-sm text-green round">
             <text>By:赵鑫洋</text>
         </view>
+        <text class="text-df text-black">天山校园墙 v1.0</text>
     </view>
     <!--状态栏-->
     <view class="padding flex text-center text-grey bg-white shadow-warp">
         <view class="flex flex-sub flex-direction solid-right">
-            <view class="text-xxl text-orange">{{visitTotal}}</view>
+            <view class="text-xxl text-orange">{{user.like}}</view>
             <view class="margin-top-sm">
                 <text class="cuIcon-likefill text-red"></text>喜欢
             </view>
         </view>
 
         <view class="flex flex-sub flex-direction">
-            <view class="text-xxl text-green">{{forksCount}}</view>
+            <view class="text-xxl text-green">{{user.reply}}</view>
             <view class="margin-top-sm">
                 <text class="cuIcon-comment text-green "></text> 回复
             </view>
         </view>
+        <!--预留状态栏-->
+        <!--        <view class="flex flex-sub flex-direction solid-right">
+                    <view class="text-xxl text-blue">{{starCount}}</view>
+                    <view class="margin-top-sm">
+                        <text class="cuIcon-favorfill text-orange"></text> 收藏
+                    </view>
+                </view>-->
 
-        <view class="flex flex-sub flex-direction solid-right">
-            <view class="text-xxl text-blue">{{starCount}}</view>
-            <view class="margin-top-sm">
-                <text class="cuIcon-favorfill text-orange"></text> 收藏
-            </view>
-        </view>
     </view>
     <!--列表-->
     <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
@@ -43,8 +43,8 @@
 
         <view class="cu-item arrow">
             <navigator class="content" url="/pages/home/mine/Contact/Contact" hover-class="none">
-            <text class="cuIcon-addressbook text-orange"></text>
-            <text class="text-grey">联系人</text>
+                <text class="cuIcon-addressbook text-orange"></text>
+                <text class="text-grey">联系人</text>
             </navigator>
         </view>
 
