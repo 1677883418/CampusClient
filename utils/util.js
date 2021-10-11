@@ -42,7 +42,7 @@ const util = {
             'content-type': 'application/json'
         };
 
-        if (_method.toUpperCase() == 'GET') {
+        if (_method.toUpperCase() === 'GET') {
             _header = {
                 'content-type': 'application/json'
             };
@@ -50,7 +50,7 @@ const util = {
         if (wx.getStorageSync("token")) {
             _header.token = wx.getStorageSync("token")
         }
-        if (arguments.length == 2 && typeof _data == 'function') {
+        if (arguments.length === 2 && typeof _data == 'function') {
             _success = _data
         }
         wx.request({
@@ -61,11 +61,11 @@ const util = {
             success: function (res) {
                 if (typeof _success == 'function' && res.statusCode != 404 && res.statusCode != 500 && res.statusCode != 400) {
                     _success(res.data);
-                    if (res.data.code == -1) {
+                    if (res.data.code === -1) {
                         that.login(function (res) {
                             that.http(method, url, data, success, fail)
                         })
-                    } else if (res.data.code != 1) {
+                    } else if (res.data.code !== 1) {
                         wx.showToast({
                             title: res.data.msg + '',
                             icon: 'none'

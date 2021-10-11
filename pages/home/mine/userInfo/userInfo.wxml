@@ -5,7 +5,7 @@
 
         <!--身份认证-->
 <view class="cu-list menu sm-border card-menu margin-top margin-bottom">
-    <view class="cu-item" wx:if="{{isCard===false}}">
+    <view class="cu-item" wx:if="{{user.isCard===false}}">
         <view class="title">身份认证</view>
         <text class="cu-btn bg-mauve light text-center round">未认证</text>
         <button bindtap="isCard" class="cu-btn bg-green shadow round">点击认证</button>
@@ -16,7 +16,7 @@
     </view>
 
     <!--学生认证-->
-    <view class="cu-item" wx:if="{{isStudent===false}}">
+    <view class="cu-item" wx:if="{{user.isStudent===false}}">
         <view class="title">学生认证</view>
         <text class="cu-btn bg-mauve text-center light round ">未认证</text>
         <button bindtap="isStudent" class="cu-btn bg-green shadow round">点击认证</button>
@@ -33,7 +33,7 @@
             <text class="text-gray">昵称</text>
         </view>
         <view class="action">
-            <input class="text-gray text-right" value="肥羊"></input>
+            <input class="text-gray text-right" value="{{user.nikeName}}"></input>
         </view>
     </view>
 
@@ -44,7 +44,7 @@
             <text class="text-grey">头像</text>
         </view>
         <view class="action">
-                <image src="{{this.avatar_url}}" class="cu-avatar round"></image>
+            <image src="{{user.avatarUrl}}" class="cu-avatar round"></image>
         </view>
     </view>
 
@@ -59,7 +59,7 @@
                 <view class="cu-tag bg-blue">
                     +86
                 </view>
-                <input class="cu-tag line-blue" value="15009010847"></input>
+                <input class="cu-tag line-blue" value="{{phone}}"></input>
                 <view class="cu-tag line-blue">
                     中国大陆
                 </view>

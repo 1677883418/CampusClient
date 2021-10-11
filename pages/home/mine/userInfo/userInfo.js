@@ -4,22 +4,27 @@ Page({
      * 页面的初始数据
      */
     data: {
-        userInfo: {},
-        temp: false,
-        isCard: false,
-        isStudent: false,
-        avatar_url: ''
+        phone: '预留接口,暂无实际意义',
+        user: {
+            nikeName: '肥羊',
+            avatarUrl: '/images/logo.png',
+            isCard: false,
+            cardId: '',
+            isStudent: false,
+            studentId: '',
+            like: '99',
+            reply: '100'
+        },
     },
     isCard: function () {
-        let that = this;
-        that.setData({
-            isCard: true
+        this.setData({
+            'user.isCard': true
         })
     },
     isStudent() {
         wx.showModal({
             title: '😷',
-            content: "🌸很抱歉哟~🌸\r\n这个接口是预留着对接学校教务系统的~",
+            content: "🌸暂不开放～🌸\r\n这个接口是预留着对接学校教务系统的哟～",
             showCancel: false
         })
     },
@@ -30,9 +35,9 @@ Page({
             sourceType: ['album', 'camera'], //从相册选择
             success: (res) => {
                 this.setData({
-                    avatarUrl: res.tempFilePaths
-
+                    'user.avatarUrl': res.tempFilePaths[0]
                 })
+                console.log(this.data)
             }
         })
     },
