@@ -33,13 +33,28 @@ App({
                         //缓存会话token和用户openId
                         wx.setStorageSync("token", res.data.session_key)
                         wx.setStorageSync("openId", res.data.openid)
+                        //用openid请求数据库,若data为null,则用户表中新建用户
                         com.get('User/queryUserByOpenId/' + res.data.openid, {}, function (res) {
-                            //若请求成功,则写入
-                            if (res.code === 0) {
-                                console.log(res.data)
-                                wx.setStorageSync()
+                                //判断是否有用户数据,若无,则新建用户
+                                if (res.data == null) {
+                                    com.post('User/addUser', {
+                                            user: {
+                                                "avatarUrl": "",
+                                                "card": false,
+                                                "cardId": 0,
+                                                "id": 0,
+                                                "nikeName": "",
+                                                "openId": "ohl4Q5VgBVHPGirqpI6qY_VuN94E",
+                                                "student": false,
+                                                "studentId": 0
+                                            }
+                                        }, function (res) {
+                                            console.log(res)
+                                        }
+                                    )
+                                }
                             }
-                        })
+                        )
                     }
                 })
             }
