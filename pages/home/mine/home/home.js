@@ -5,15 +5,18 @@ Component({
     },
     data: {
         user: {
-            nikeName:'肥羊',
-            avatarUrl: '/images/logo.png',
+            nikeName: wx.getStorageSync("nikeName"),
+            avatarUrl: wx.getStorageSync("avatarUrl"),
             isCard: true,
-            cardId:'',
-            isStudent:false,
-            studentId:'',
-            like:'99',
-            reply:'100'
+            cardId: '',
+            isStudent: false,
+            studentId: '',
+            like: '99',
+            reply: '100'
         }
     },
+    onload() {
+
+    }
 
 })

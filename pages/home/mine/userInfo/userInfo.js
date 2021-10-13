@@ -6,7 +6,7 @@ Page({
     data: {
         phone: '预留接口,暂无实际意义',
         user: {
-            nikeName: '肥羊',
+            nikeName: wx.getStorageSync("nikeName"),
             avatarUrl: '/images/logo.png',
             isCard: false,
             cardId: '',

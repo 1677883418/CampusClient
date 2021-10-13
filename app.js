@@ -38,21 +38,28 @@ App({
                                 //判断是否有用户数据,若无,则新建用户
                                 if (res.data == null) {
                                     com.post('User/addUser', {
-                                            user: {
-                                                "avatarUrl": "",
-                                                "card": false,
-                                                "cardId": 0,
-                                                "id": 0,
-                                                "nikeName": "",
-                                                "openId": "ohl4Q5VgBVHPGirqpI6qY_VuN94E",
-                                                "student": false,
-                                                "studentId": 0
-                                            }
+                                            "nikeName": wx.getStorageSync("nikeName"),
+                                            "avatarUrl": wx.getStorageSync("avatarUrl"),
+                                            "card": wx.getStorageSync("card"),
+                                            "cardId": wx.getStorageSync("cardId"),
+                                            "openId": wx.getStorageSync("openId"),
+                                            "student": wx.getStorageSync("student"),
+                                            "studentId": wx.getStorageSync("studentId")
                                         }, function (res) {
                                             console.log(res)
                                         }
                                     )
+                                } else {
+                                    //若查询到用户信息,则将返回值存入本地
+                                    console.log(res.data)
+                                    wx.setStorageSync("nikeName", res.data.nikeName)
+                                    wx.setStorageSync("avatarUrl", res.data.avatarUrl)
+                                    wx.setStorageSync("card", res.data.card)
+                                    wx.setStorageSync("cardId", res.data.cardId)
+                                    wx.setStorageSync("student", res.data.student)
+                                    wx.setStorageSync("studentId", res.data.studentId)
                                 }
+
                             }
                         )
                     }
