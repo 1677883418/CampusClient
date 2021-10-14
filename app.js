@@ -25,14 +25,12 @@ App({
         // 登录
         wx.login({
             success(res) {
-                console.log(res.code);
                 com.post("User/login", { jsCode: res.code }, function (res) {
-                    console.log(res);
                     //是否获取到用户的openid和token
                     if (res.code === 0) {
                         //缓存会话token和用户openId
                         wx.setStorageSync("token", res.data.session_key);
-                        wx.setStorageSync("openId", res.data.openid);
+                        wx.setStorageSync("user.openId", res.data.openid);
                         //用openid请求数据库,若data为null,则用户表中新建用户
                         com.get(
                             "User/queryUserByOpenId/" + res.data.openid,
@@ -43,27 +41,19 @@ App({
                                     com.post(
                                         "User/addUser",
                                         {
-                                            nikeName: wx.getStorageSync("nikeName"),
-                                            avatarUrl: wx.getStorageSync("avatarUrl"),
-                                            card: wx.getStorageSync("card"),
-                                            cardId: wx.getStorageSync("cardId"),
-                                            openId: wx.getStorageSync("openId"),
-                                            student: wx.getStorageSync("student"),
-                                            studentId: wx.getStorageSync("studentId"),
-                                        },
-                                        function (res) {
-                                            console.log(res);
+                                            user: wx.getStorageSync("user")
+                                            // nikeName: wx.getStorageSync("nikeName"),
+                                            // avatarUrl: wx.getStorageSync("avatarUrl"),
+                                            // card: wx.getStorageSync("card"),
+                                            // cardId: wx.getStorageSync("cardId"),
+                                            // openId: wx.getStorageSync("openId"),
+                                            // student: wx.getStorageSync("student"),
+                                            // studentId: wx.getStorageSync("studentId"),
                                         }
                                     );
                                 } else {
                                     //若查询到用户信息,则将返回值存入本地
-                                    console.log(res.data);
-                                    wx.setStorageSync("nikeName", res.data.nikeName);
-                                    wx.setStorageSync("avatarUrl", res.data.avatarUrl);
-                                    wx.setStorageSync("card", res.data.card);
-                                    wx.setStorageSync("cardId", res.data.cardId);
-                                    wx.setStorageSync("student", res.data.student);
-                                    wx.setStorageSync("studentId", res.data.studentId);
+                                    wx.setStorageSync("user", res.data);
                                 }
                             }
                         );
