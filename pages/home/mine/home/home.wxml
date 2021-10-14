@@ -4,11 +4,11 @@
         <image src="{{user.avatarUrl}}" class="cu-avatar  round margin-left" mode="widthFix"></image>
         <view class="text-xl margin-top text-black">{{user.nikeName}}</view>
         <view class="cu-btn margin-top-sm text-green round">
-            <text wx:if="{{this.data.user.nikeName!==''}}">By:赵鑫洋
-            </text>
-            <button wx:else>点我一键获取头像信息</button>
+            <text wx:if="{{this.data.user.nikeName}}">By:赵鑫洋</text>
+            <button wx:else class="cu-btn text-green round" bindtap="getInfo">点我一键获取头像信息</button>
 
         </view>
+
         <text class="text-df text-black">天山校园墙 v1.0</text>
     </view>
     <!--状态栏-->
