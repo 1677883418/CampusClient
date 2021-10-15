@@ -1,6 +1,7 @@
 const app = getApp();
 Page({
     data: {
+        user: wx.getStorageSync("user")
         // user: {
         //     nikeName: "",
         //     avatarUrl: wx.getStorageSync("avatarUrl"),
@@ -11,15 +12,6 @@ Page({
         //     like: "99",
         //     reply: "100",
         // },
-    },
-    onShow: function () {
-            this.setData({
-                user: wx.getStorageSync("user")
-            })
-            console.log(wx.getStorageSync("user"))
-
-    },
-    onLoad:function(e) { 
     },
     getInfo: function (e) {
         // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认
@@ -34,20 +26,19 @@ Page({
                 this.setData({
                     user: res.userInfo,
                 });
-                wx.setStorageSync("user", res.userInfo);
                 console.log(this.data.user);
                 app.com.post(
                     "/User/updateUser",
                     {
                         nickName: res.userInfo.nickName,
                         avatarUrl: res.userInfo.avatarUrl,
-
+                        openId: wx.getStorageSync("openId")
                     },
                     function (res) {
+                        wx.setStorageSync("user", res.userInfo);
                     }
                 );
             },
         });
-        console.log(wx.getStorageSync("user"))
     },
 });

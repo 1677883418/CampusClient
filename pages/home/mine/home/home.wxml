@@ -1,41 +1,40 @@
 <scroll-view scroll-y class="scrollPage">
-    <!--头像+id-->
+    <!-- 头像+id -->
     <view class="UCenter-bg">
-        <image src="{{user.avatarUrl}}" class="cu-avatar  round margin-left" mode="widthFix"></image>
+        <view class="cu-tabbar-height"></view>
+        <image src="{{user.avatarUrl}}" class="cu-avatar margin-left" mode="widthFix"></image>
         <view class="text-xl margin-top text-black">{{user.nickName}}</view>
         <view class="cu-btn margin-top-sm text-green round">
-            <text wx:if="{{user.nickName}}">By:赵鑫洋</text>
+            <text wx:if="{{user.nickName!=='微信用户'}}">By:赵鑫洋</text>
             <button wx:else class="cu-btn text-green round" bindtap="getInfo">点我一键获取头像信息</button>
-
         </view>
-
         <text class="text-df text-black">天山校园墙 v1.0</text>
     </view>
-    <!--状态栏-->
+    <!-- 状态栏 -->
     <view class="padding flex text-center text-grey bg-white shadow-warp">
         <view class="flex flex-sub flex-direction solid-right">
             <view class="text-xxl text-orange">{{user.like}}</view>
             <view class="margin-top-sm">
-                <text class="cuIcon-likefill text-red"></text>喜欢
+                <text class="cuIcon-likefill text-red"></text>
+                喜欢
             </view>
         </view>
-
         <view class="flex flex-sub flex-direction">
             <view class="text-xxl text-green">{{user.reply}}</view>
             <view class="margin-top-sm">
-                <text class="cuIcon-comment text-green "></text> 回复
+                <text class="cuIcon-comment text-green "></text>
+                回复
             </view>
         </view>
-        <!--预留状态栏-->
-        <!--        <view class="flex flex-sub flex-direction solid-right">
+        <!-- 预留状态栏 -->
+        <!-- <view class="flex flex-sub flex-direction solid-right">
                     <view class="text-xxl text-blue">{{starCount}}</view>
                     <view class="margin-top-sm">
                         <text class="cuIcon-favorfill text-orange"></text> 收藏
                     </view>
-                </view>-->
-
+                </view> -->
     </view>
-    <!--列表-->
+    <!-- 列表 -->
     <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
         <view class="cu-item arrow">
             <navigator class="content" url="/pages/home/mine/userInfo/userInfo" hover-class="none">
@@ -43,35 +42,32 @@
                 <text class=" text-grey">个人信息</text>
             </navigator>
         </view>
-
         <view class="cu-item arrow">
             <navigator class="content" url="/pages/home/mine/Contact/Contact" hover-class="none">
                 <text class="cuIcon-addressbook text-orange"></text>
                 <text class="text-grey">联系人</text>
             </navigator>
         </view>
-
-        <!--        <view class="cu-item arrow">
+        <!-- <view class="cu-item arrow">
                     <view class="content" bindtap="showQrcode">
                         <text class="cuIcon-appreciatefill text-red"></text>
                         <text class="text-grey">赞赏支持</text>
                     </view>
-                </view>-->
-
+                </view> -->
         <view class="cu-item arrow">
             <button class="cu-btn content" open-type="feedback">
                 <text class="cuIcon-writefill text-cyan"></text>
                 <text class="text-grey">意见反馈</text>
             </button>
         </view>
-        <!--日志-->
+        <!-- 日志 -->
         <view class="cu-item arrow">
             <navigator class="content" url="/pages/home/mine/log/log" hover-class="none">
                 <text class="cuIcon-formfill text-green"></text>
                 <text class="text-grey">日志</text>
             </navigator>
         </view>
-        <!--关于作者-->
+        <!-- 关于作者 -->
         <view class="cu-item arrow">
             <navigator class="content" url="/pages/home/mine/about/about" hover-class="none">
                 <text class="cuIcon-wefill text-red"></text>

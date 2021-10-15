@@ -26,29 +26,35 @@ App({
         wx.login({
             success(res) {
                 com.post("User/login", { jsCode: res.code }, function (res) {
+                    // console.log(res.data)
                     //是否获取到用户的openid和token
                     if (res.code === 0) {
                         //缓存会话token和用户openId
+                        wx.setStorageSync("user", {
+                            avatarUrl: "",
+                            card: false,
+                            cardId: "",
+                            id: 0,
+                            nikeName: "微信用户",
+                            openId: "",
+                            student: false,
+                            studentId: 0
+                        });
                         wx.setStorageSync("token", res.data.session_key);
-                        wx.setStorageSync("user.openId", res.data.openid);
+                        wx.setStorageSync("user".openId, res.data.openid);
+                        console.log(wx.getStorageSync("user"))
                         //用openid请求数据库,若data为null,则用户表中新建用户
                         com.get(
                             "User/queryUserByOpenId/" + res.data.openid,
                             {},
                             function (res) {
+                                console.log(res.data)
                                 //判断是否有用户数据,若无,则新建用户
                                 if (res.data == null) {
                                     com.post(
                                         "User/addUser",
                                         {
                                             user: wx.getStorageSync("user")
-                                            // nikeName: wx.getStorageSync("nikeName"),
-                                            // avatarUrl: wx.getStorageSync("avatarUrl"),
-                                            // card: wx.getStorageSync("card"),
-                                            // cardId: wx.getStorageSync("cardId"),
-                                            // openId: wx.getStorageSync("openId"),
-                                            // student: wx.getStorageSync("student"),
-                                            // studentId: wx.getStorageSync("studentId"),
                                         }
                                     );
                                 } else {
