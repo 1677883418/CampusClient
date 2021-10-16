@@ -17,6 +17,18 @@
                     "pathName": "pages/index/index",
                     "query": "",
                     "scene": null
+                },
+                {
+                    "name": "pages/home/home/home",
+                    "pathName": "pages/home/home/home",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/home/mine/home/home",
+                    "pathName": "pages/home/mine/home/home",
+                    "query": "",
+                    "scene": null
                 }
             ]
         }

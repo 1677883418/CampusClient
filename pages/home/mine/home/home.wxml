@@ -3,12 +3,19 @@
     <view class="UCenter-bg">
         <view class="cu-tabbar-height"></view>
         <image src="{{user.avatarUrl}}" class="cu-avatar margin-left" mode="widthFix"></image>
-        <view class="text-xl margin-top text-black">{{user.nickName}}</view>
-        <view class="cu-btn margin-top-sm text-green round">
-            <text wx:if="{{user.nickName!=='微信用户'}}">By:赵鑫洋</text>
-            <button wx:else class="cu-btn text-green round" bindtap="getInfo">点我一键获取头像信息</button>
+        <view wx:if="{{user.nickName!=null}}">
+            <view class="text-xl margin-top text-center text-black">{{user.nickName}}</view>
+            <view class="cu-btn margin-top-sm text-green round">
+                <text>By:赵鑫洋</text>
+            </view>
         </view>
-        <text class="text-df text-black">天山校园墙 v1.0</text>
+        <view wx:else>
+            <view class="cu-tabbar-height"></view>
+            <view>
+                <button class="cu-btn text-green round" bindtap="navigateToLogin">点我一键获取头像信息</button>
+                <text class="cu-btn round margin-sm text-df text-red ">天山校园墙 v1.0</text>
+            </view>
+        </view>
     </view>
     <!-- 状态栏 -->
     <view class="padding flex text-center text-grey bg-white shadow-warp">
@@ -77,3 +84,24 @@
     </view>
     <view class="cu-tabbar-height"></view>
 </scroll-view>
+
+<view class="cu-modal {{modalName=='DialogModal1'?'show':''}}">
+    <view class="cu-dialog">
+        <view class="cu-bar bg-white justify-end">
+            <view class="content">Modal标题</view>
+            <view class="action" bindtap="hideModal">
+                <text class="cuIcon-close text-red"></text>
+            </view>
+        </view>
+        <view class="padding-xl">
+            Modal 内容。
+        </view>
+        <view class="cu-bar bg-white justify-end">
+            <view class="action">
+                <button class="cu-btn line-green text-green" bindtap="hideModal">取消</button>
+                <button class="cu-btn bg-green margin-left" bindtap="hideModal">确定</button>
+
+            </view>
+        </view>
+    </view>
+</view>

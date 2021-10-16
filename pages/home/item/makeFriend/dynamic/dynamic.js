@@ -1,4 +1,7 @@
-Page({
+Component({
+    options: {
+        addGlobalClass: true,
+    },
     data: {
         index: null,
         dynamicIndex: null,
