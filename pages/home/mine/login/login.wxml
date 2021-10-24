@@ -1,30 +1,12 @@
-<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+<cu-custom bgColor="bg-cyan" isBack="{{true}}">
     <view slot="backText">我的</view>
-    <view slot="content">个人信息</view>
+    <view slot="content">注册</view>
 </cu-custom>
-
-
         <!--身份认证-->
 <view class="cu-list menu sm-border card-menu margin-top margin-bottom">
-    <view class="cu-item" wx:if="{{user.isCard===false}}">
+    <view class="cu-item">
         <view class="title">身份认证</view>
-        <text class="cu-btn bg-mauve light text-center round">未认证</text>
-        <button bindtap="isCard" class="cu-btn bg-green shadow round">点击认证</button>
-    </view>
-    <view class="cu-item" wx:else>
-        <view class="title">身份认证</view>
-        <text class="cu-btn bg-green text-center light round ">已认证</text>
-    </view>
-
-    <!--学生认证-->
-    <view class="cu-item" wx:if="{{user.isStudent===false}}">
-        <view class="title">学生认证</view>
-        <text class="cu-btn bg-mauve text-center light round ">未认证</text>
-        <button bindtap="isStudent" class="cu-btn bg-green shadow round">点击认证</button>
-    </view>
-    <view class="cu-item" wx:else>
-        <view class="title">学生认证</view>
-        <text class="cu-btn bg-green text-center light round ">已认证</text>
+        <text class="cu-btn bg-green text-center light round" bindtap="getUserProfile">点我获取头像信息</text>
     </view>
 
     <!--昵称-->
@@ -34,7 +16,7 @@
             <text class="text-gray">昵称</text>
         </view>
         <view class="action">
-            <input class="text-gray text-right" value="{{user.nikeName}}"></input>
+            <input class="text-gray text-right" value="{{user.nickName}}"></input>
         </view>
     </view>
 
@@ -68,8 +50,21 @@
         </view>
     </view>
 </view>
+<view class="cu-tabbar-height"></view>
 <view class="text-center">
     <button class="cu-btn bg-brown round" bindtap="isSubmit">
-        保存修改
+        确认注册
     </button>
+</view>
+<view class="cu-tabbar-height"></view>
+<view class="cu-steps bg-white margin-top-xl cu-bar tabbar foot">
+    <view class="cu-item text-orange">
+        <text class="cuIcon-usefullfill"></text>注册
+    </view>
+    <view class="cu-item">
+        <text class="cuIcon-title"></text>认证(选填)
+    </view>
+    <view class="cu-item">
+        <text class="cuIcon-title"></text>完成
+    </view>
 </view>

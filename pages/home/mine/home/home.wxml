@@ -5,10 +5,8 @@
         <image src="{{user.avatarUrl}}" class="cu-avatar margin-left" mode="widthFix"></image>
         <view class="text-xl margin-top text-black">{{user.nickName}}</view>
         <view class="cu-btn margin-top-sm text-green round">
-            <text wx:if="{{user.nickName!=='微信用户'}}">By:赵鑫洋</text>
-            <button wx:else class="cu-btn text-green round" bindtap="getInfo">点我一键获取头像信息</button>
+            <text wx:if="{{user.nickName!==null}}">By:赵鑫洋</text>
         </view>
-        <text class="text-df text-black">天山校园墙 v1.0</text>
     </view>
     <!-- 状态栏 -->
     <view class="padding flex text-center text-grey bg-white shadow-warp">
