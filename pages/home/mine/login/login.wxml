@@ -6,7 +6,7 @@
 <view class="cu-list menu sm-border card-menu margin-top margin-bottom">
     <view class="cu-item">
         <view class="title">身份认证</view>
-        <text class="cu-btn bg-green text-center light round" bindtap="getUserProfile">点我获取头像信息</text>
+        <text class="cu-btn bg-green text-center light round" bindtap="getUserProfile">点我获取头像昵称</text>
     </view>
 
     <!--昵称-->
@@ -30,26 +30,8 @@
             <image src="{{user.avatarUrl}}" class="cu-avatar round"></image>
         </view>
     </view>
-
-    <!--手机号-->
-    <view class="cu-item">
-        <view class="content">
-            <text class="cuIcon-phone text-orange"></text>
-            <text class="text-grey">手机号</text>
-        </view>
-        <view class="action">
-            <view class="cu-capsule radius">
-                <view class="cu-tag bg-blue">
-                    +86
-                </view>
-                <input class="cu-tag line-blue" value="{{phone}}"></input>
-                <view class="cu-tag line-blue">
-                    中国大陆
-                </view>
-            </view>
-        </view>
-    </view>
 </view>
+
 <view class="cu-tabbar-height"></view>
 <view class="text-center">
     <button class="cu-btn bg-brown round" bindtap="isSubmit">
@@ -57,14 +39,4 @@
     </button>
 </view>
 <view class="cu-tabbar-height"></view>
-<view class="cu-steps bg-white margin-top-xl cu-bar tabbar foot">
-    <view class="cu-item text-orange">
-        <text class="cuIcon-usefullfill"></text>注册
-    </view>
-    <view class="cu-item">
-        <text class="cuIcon-title"></text>认证(选填)
-    </view>
-    <view class="cu-item">
-        <text class="cuIcon-title"></text>完成
-    </view>
-</view>
+

@@ -23,18 +23,6 @@ Page({
                     'user.nickName': res.userInfo.nickName,
                     'user.avatarUrl': res.userInfo.avatarUrl
                 })
-                //获取到用户信息,更新数据库
-                app.com.post(
-                    "/User/updateUser",
-                    {
-                        nickName: res.userInfo.nickName,
-                        avatarUrl: res.userInfo.avatarUrl,
-                        openId: wx.getStorageSync("openId")
-                    },
-                    function (res) {
-                        console.log("请求成功")
-                    }
-                );
             },
         });
         this.setData({
@@ -66,6 +54,18 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
+        wx.showModal({
+            title: '😋',
+            content: '是否授权\r\n使用您的微信昵称和头像\r\n登录',
+            confirmText: '整吧那就',
+            cancelText: '下次一定',
+            success(res) {
+                if (res.confirm) {
+                } else if (res.cancel) {
+
+                }
+            }
+        })
 
     },
 
@@ -73,7 +73,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        console.log(this)
     },
 
     /**
