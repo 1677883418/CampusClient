@@ -16,8 +16,8 @@ Component({
                 dynamicTime: '2021-10-2',
                 dynamicText: "纵有千古,横有八荒\r\n前途似海,来日方长",
                 dynamicImage: [
-                    "https://z3.ax1x.com/2021/10/06/4vxm1e.jpg",
-                    "https://z3.ax1x.com/2021/10/06/4vxEtK.jpg"
+                    "https://zxy1677883418.oss-cn-beijing.aliyuncs.com/Campus/dynamic/%E7%9C%8B%E4%B9%A6%E8%9C%98%E8%9B%9B%E4%BE%A0.jpg",
+                    "https://zxy1677883418.oss-cn-beijing.aliyuncs.com/Campus/dynamic/%E5%BE%AE%E4%BF%A1%E5%A4%B4%E5%83%8F.jpg"
                 ],
                 dynamicLike: '10'
             },
@@ -29,10 +29,10 @@ Component({
                 dynamicTime: '2021-10-6',
                 dynamicText: "热爱可抵岁月漫长",
                 dynamicImage: [
-                    "https://z3.ax1x.com/2021/10/06/4vxEtK.jpg",
-                    "https://z3.ax1x.com/2021/10/06/4vxm1e.jpg",
-                    "https://z3.ax1x.com/2021/10/09/5ijOwF.png",
-                    "https://z3.ax1x.com/2021/10/09/5FSMOx.png"
+                    "https://zxy1677883418.oss-cn-beijing.aliyuncs.com/Campus/dynamic/%E5%BE%AE%E4%BF%A1%E5%A4%B4%E5%83%8F.jpg",
+                    "https://zxy1677883418.oss-cn-beijing.aliyuncs.com/Campus/dynamic/%E7%9C%8B%E4%B9%A6%E8%9C%98%E8%9B%9B%E4%BE%A0.jpg",
+                    "https://zxy1677883418.oss-cn-beijing.aliyuncs.com/Campus/dynamic/airs0-4udei.webp",
+                    "https://zxy1677883418.oss-cn-beijing.aliyuncs.com/Campus/dynamic/5FSMOx.md.png"
                 ],
                 dynamicLike: '999'
             }

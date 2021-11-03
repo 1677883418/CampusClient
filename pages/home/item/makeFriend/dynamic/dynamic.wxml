@@ -4,8 +4,9 @@
 </cu-custom>
 <scroll-view scroll-y class="scrollPage">
     <!-- 动态 -->
-    <view class="cu-card dynamic margin-bottom-xl">
-        <view class="cu-item shadow" wx:for="{{dynamic}}" wx:key="{{index}}" bindtap="ViewImage" data-dynamic-image="{{item.dynamicImage}}">
+    <view class="cu-card dynamic margin-bottom-xl col-2">
+        <view class="cu-item shadow " wx:for="{{dynamic}}" wx:key="{{index}}" bindtap="ViewImage"
+              data-dynamic-image="{{item.dynamicImage}}">
             <view class="cu-list menu-avatar">
                 <!-- 信息栏 -->
                 <view class="cu-item">
@@ -33,8 +34,10 @@
             <!-- 图片展示 -->
             <view class="grid flex-sub padding-lr">
                 <view class="grid col-2 grid-square flex-sub">
-                    <view class="bg-img" wx:for="{{item.dynamicImage}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{item}}">
-                        <image src='{{item}}' mode='aspectFit'></image>
+                    <view class="bg-img" wx:for="{{item.dynamicImage}}"  lazy-load="true" wx:key="{{index}}"
+                          bindtap="ViewImage"
+                          data-url="{{item}}">
+                        <image class="square-img" src='{{item}}?x-oss-process=style/compress' mode='aspectFill'></image>
                     </view>
                 </view>
             </view>
@@ -46,33 +49,33 @@
     </view>
     <view class="cu-tabbar-height"></view>
 </scroll-view>
-<!-- &lt;!&ndash;任务栏&ndash;&gt;
-        <view class="cu-bar tabbar bg-white action shadow foot">
-            &lt;!&ndash;动态&ndash;&gt;
-            <view class="action" bindtap="NavChange" data-page="dynamic">
-                <view class="text-green cuIcon-comment"></view>
-                <text class="text-gray">动态</text>
-            </view>
-            &lt;!&ndash;匹配&ndash;&gt;
-            <view class="action" bindtap="NavChange" data-page="matching">
-                <view class="text-cyan cuIcon-same text-center"></view>
-                <text class="text-gray">匹配</text>
-            </view>
-            &lt;!&ndash;发布&ndash;&gt;
-            <view class="action add-action" bindtap="toAdd" data-page="matching">
-                <button class="cu-btn cuIcon-add bg-purple shadow" role="button" aria-disabled="false"></button>
-                <text class="text-gray">发布</text>
-            </view>
-            &lt;!&ndash;排行榜&ndash;&gt;
-            <view class="action grid col-1" bindtap="NavChange" data-cur="top">
-                <view class="text-orange cuIcon-selectionfill text-center"></view>
-                <text class="text-gray">排行榜</text>
-            </view>
-            &lt;!&ndash;我的&ndash;&gt;
+        <!-- &lt;!&ndash;任务栏&ndash;&gt;
+                <view class="cu-bar tabbar bg-white action shadow foot">
+                    &lt;!&ndash;动态&ndash;&gt;
+                    <view class="action" bindtap="NavChange" data-page="dynamic">
+                        <view class="text-green cuIcon-comment"></view>
+                        <text class="text-gray">动态</text>
+                    </view>
+                    &lt;!&ndash;匹配&ndash;&gt;
+                    <view class="action" bindtap="NavChange" data-page="matching">
+                        <view class="text-cyan cuIcon-same text-center"></view>
+                        <text class="text-gray">匹配</text>
+                    </view>
+                    &lt;!&ndash;发布&ndash;&gt;
+                    <view class="action add-action" bindtap="toAdd" data-page="matching">
+                        <button class="cu-btn cuIcon-add bg-purple shadow" role="button" aria-disabled="false"></button>
+                        <text class="text-gray">发布</text>
+                    </view>
+                    &lt;!&ndash;排行榜&ndash;&gt;
+                    <view class="action grid col-1" bindtap="NavChange" data-cur="top">
+                        <view class="text-orange cuIcon-selectionfill text-center"></view>
+                        <text class="text-gray">排行榜</text>
+                    </view>
+                    &lt;!&ndash;我的&ndash;&gt;
 
-            <view class="action" bindtap="NavChange" data-cur="mine">
-                <view class="text-mauve cuIcon-people text-center"></view>
-                <text class="text-gray">我的</text>
-            </view>
+                    <view class="action" bindtap="NavChange" data-cur="mine">
+                        <view class="text-mauve cuIcon-people text-center"></view>
+                        <text class="text-gray">我的</text>
+                    </view>
 
-        </view> -->
+                </view> -->

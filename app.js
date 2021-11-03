@@ -2,7 +2,7 @@
 let com = require("./utils/util.js");
 App({
     com: com,
-    onLaunch() {
+    onLaunch(key, data) {
         // 展示本地存储能力
         const logs = wx.getStorageSync("logs") || [];
         logs.unshift(Date.now());
@@ -25,36 +25,28 @@ App({
         // 登录
         wx.login({
             success(res) {
-                com.post("User/login", { jsCode: res.code }, function (res) {
-                    // console.log(res.data)
+                com.post("User/login", res.code, function (res) {
+
                     //是否获取到用户的openid和token
                     if (res.code === 0) {
                         //缓存会话token和用户openId
-                        wx.setStorageSync("user", {
-                            avatarUrl: "",
-                            card: false,
-                            cardId: "",
-                            id: 0,
-                            nikeName: "微信用户",
-                            openId: "",
-                            student: false,
-                            studentId: 0
-                        });
                         wx.setStorageSync("token", res.data.session_key);
-                        wx.setStorageSync("user".openId, res.data.openid);
-                        console.log(wx.getStorageSync("user"))
+                        wx.setStorageSync('openId', res.data.openid)
                         //用openid请求数据库,若data为null,则用户表中新建用户
                         com.get(
                             "User/queryUserByOpenId/" + res.data.openid,
                             {},
                             function (res) {
-                                console.log(res.data)
                                 //判断是否有用户数据,若无,则新建用户
                                 if (res.data == null) {
                                     com.post(
                                         "User/addUser",
                                         {
-                                            user: wx.getStorageSync("user")
+                                            nickName: '💜无名之辈💛',
+                                            avatarUrl: 'https://z3.ax1x.com/2021/11/09/ItIbm4.jpg',
+                                            openId: wx.getStorageSync('openId')
+                                        }, function (res) {
+                                            wx.setStorageSync('user', res.data)
                                         }
                                     );
                                 } else {

@@ -8,10 +8,11 @@ Component({
     },
     lifetimes: {
         attached: function () {
+            this.setData({
+                user: wx.getStorageSync("user")
+            })
             // 在组件实例进入页面节点树时执行
-            console.log(this.data.user.nickName)
-            console.log(wx.getStorageSync("user").nickName);
-            if (wx.getStorageSync("user").nickName == null) {
+            if (wx.getStorageSync("user").nickName === '💜无名之辈💛') {
                 wx.showModal({
                     title: '😜',
                     content: '您还没有注册哟~\r\n是否现在注册？',

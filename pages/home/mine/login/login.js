@@ -1,4 +1,6 @@
 // pages/home/mine/login.js
+
+const com = require("../../../../utils/util");
 const app = getApp();
 Page({
 
@@ -6,8 +8,10 @@ Page({
      * 页面的初始数据
      */
     data: {
+        com: com,
         user: {}
     },
+
     getUserProfile(e) {
         // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认
         // 开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
@@ -29,6 +33,32 @@ Page({
             user: wx.getStorageSync("user")
         })
     },
+    isSubmit() {
+        //判断信息是否填写
+        if (this.data.user.nickName === '💜无名之辈💛' ||
+            this.data.user.nickName === '' ||
+            this.data.user.avatarUrl == null ||
+            this.data.user.avatarUrl === 'https://z3.ax1x.com/2021/11/09/ItIbm4.jpg') {
+            wx.showModal({
+                title: '😢',
+                content: '信息不完整哟~\r\n填写完整后再提交吧',
+                showCancel: false,
+                confirmText: '整吧那就'
+            })
+        }
+        //确认填写完整后提交信息，检测是否违规
+        else {
+            com.post("User/updateUser", this.data.user, res => {
+                if (res.code === 0) {
+                    wx.setStorageSync('user', this.data.user)
+                    wx.navigateTo({
+                        url: "/pages/index/index"
+                    })
+                }
+            })
+        }
+
+    },
     ChooseImage() {
         wx.chooseImage({
             count: 1, //默认9
@@ -38,34 +68,31 @@ Page({
                 this.setData({
                     'user.avatarUrl': res.tempFilePaths[0]
                 })
-                console.log(this.data)
             }
         })
+    },
+    nickNameInput: function (e) {
+        this.setData({
+            'user.nickName': e.detail.value
+        })
+        console.log(this.data.user.nickName)
     },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
-
+        this.setData({
+            /*'user.nickName': wx.getStorageSync(user).nickName,
+            'user.avatarUrl': wx.getStorageSync(user).avatarUrl*/
+            user: wx.getStorageSync('user')
+        })
+        console.log(this.data.user.nickName)
     },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-        wx.showModal({
-            title: '😋',
-            content: '是否授权\r\n使用您的微信昵称和头像\r\n登录',
-            confirmText: '整吧那就',
-            cancelText: '下次一定',
-            success(res) {
-                if (res.confirm) {
-                } else if (res.cancel) {
-
-                }
-            }
-        })
 
     },
 
@@ -73,7 +100,6 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        console.log(this)
     },
 
     /**

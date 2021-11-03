@@ -1,24 +1,25 @@
 const util = {
-    API: 'http://localhost:8080/',
+    API: 'http://127.0.0.1:8080/',
+    // API: 'http://1.117.99.103:8080/',
 
-/*    login(cb) {
-        var that = this;
-        wx.login({
-            success(res) {
-                that.post('User/login', {js_code: res.code}, function (res) {
-                    if (res.code === 0) {
-                        wx.showToast({
-                            title: res.data.msg + '',
-                            icon: 'none'
-                        })
-                    } else if (res.code === 1) {
-                        wx.setStorageSync("user", res.data)
-                        wx.setStorageSync("token", res.token)
-                    }
-                })
-            }
-        })
-    },*/
+    /*    login(cb) {
+            var that = this;
+            wx.login({
+                success(res) {
+                    that.post('User/login', {js_code: res.code}, function (res) {
+                        if (res.code === 0) {
+                            wx.showToast({
+                                title: res.data.msg + '',
+                                icon: 'none'
+                            })
+                        } else if (res.code === 1) {
+                            wx.setStorageSync("user", res.data)
+                            wx.setStorageSync("token", res.token)
+                        }
+                    })
+                }
+            })
+        },*/
     //post请求
     post(url, data, success, fail) {
         this.http('POST', url, data, success, fail)
@@ -88,23 +89,7 @@ const util = {
                 }
             }
         });
-    },
-    dateFormat(time, fmt) { //author: meizz
-        let date = new Date(parseInt(time))
-        var o = {
-            "M+": date.getMonth() + 1, //月份
-            "d+": date.getDate(), //日
-            "h+": date.getHours(), //小时
-            "m+": date.getMinutes(), //分
-            "s+": date.getSeconds(), //秒
-            "q+": Math.floor((date.getMonth() + 3) / 3), //季度
-            "S": date.getMilliseconds() //毫秒
-        };
-        if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
-        for (var k in o)
-            if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
-        return fmt;
-    },
+    }
 }
 module.exports = util
 
