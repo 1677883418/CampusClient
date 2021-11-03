@@ -8,6 +8,9 @@ Component({
     },
     lifetimes: {
         attached: function () {
+            this.setData({
+                user: wx.getStorageSync("user")
+            })
             // 在组件实例进入页面节点树时执行
             console.log(this.data.user.nickName)
             console.log(wx.getStorageSync("user").nickName);

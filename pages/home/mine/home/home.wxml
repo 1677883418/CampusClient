@@ -3,7 +3,7 @@
     <view class="UCenter-bg">
         <view class="cu-tabbar-height"></view>
         <image src="{{user.avatarUrl}}" class="cu-avatar margin-left" mode="widthFix"></image>
-        <view class="text-xl margin-top text-black">{{user.nickName}}</view>
+        <view class="text-xl margin-top text-black">{{user.nickName }}</view>
         <view class="cu-btn margin-top-sm text-green round">
             <text wx:if="{{user.nickName!==null}}">By:赵鑫洋</text>
         </view>

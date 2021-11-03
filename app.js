@@ -42,7 +42,7 @@ App({
                         });
                         wx.setStorageSync("token", res.data.session_key);
                         wx.setStorageSync("user".openId, res.data.openid);
-                        console.log(wx.getStorageSync("user"))
+                        // console.log(wx.getStorageSync("user"))
                         //用openid请求数据库,若data为null,则用户表中新建用户
                         com.get(
                             "User/queryUserByOpenId/" + res.data.openid,

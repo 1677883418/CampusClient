@@ -12,8 +12,6 @@ Page({
             cardId: '',
             isStudent: false,
             studentId: '',
-            like: '99',
-            reply: '100'
         },
     },
     isCard: function () {
