@@ -60,7 +60,6 @@ App({
             },
         });
     },
-
     globalData: {
         userInfo: null,
     },

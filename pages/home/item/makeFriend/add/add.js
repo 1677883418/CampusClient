@@ -7,6 +7,7 @@ Page({
         CustomBar: app.globalData.CustomBar,
         dynamicText: '',
         imgList: [],
+        img:[]
     },
 
     ChooseImage() {
@@ -70,20 +71,17 @@ Page({
         }
         //确认填写完整后提交信息，检测是否违规
         else {
-            //检测是否含有图片
-            if (this.data.imgList.length !== 0) {
-                uploadImg({
-                    i: this.data.imgList.length,
-                    url: com.API + "Dynamic/addDynamic",
-                    filePath: this.data.imgList[i],
-                    name: "dynamicImage",
-                    formData: {
-                        userId: wx.getStorageSync("user").id,
-                        dynamicText: this.data.dynamicText
+            for (var i = 0; i < this.data.imgList.length; i++) {
+                wx.getFileSystemManager().readFile({
+                    filePath: this.data.imgList[i], // 选择图片返回的相对路径
+                    encoding: 'base64', // 编码格式
+                    success: res => { // 成功的回调
+                        // console.log('data:image/png;base64,' + res.data)
+                        let img;
+                        img[i] = res.data
                     }
                 })
             }
-
         }
     },
     dynamicTextInput: function (e) {
