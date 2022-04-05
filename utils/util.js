@@ -67,10 +67,10 @@ const util = {
                             that.http(method, url, data, success, fail)
                         })
                     } else if (res.data.code !== 1) {
-                        wx.showToast({
+/*                        wx.showToast({
                             title: res.data.msg + '',
                             icon: 'none'
-                        })
+                        })*/
                     }
 
                 } else {

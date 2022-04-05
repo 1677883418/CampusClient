@@ -5,30 +5,6 @@
 
 
 <view class="cu-list menu sm-border card-menu margin-top margin-bottom">
-    <!--
-
-        &lt;!&ndash;身份认证&ndash;&gt;
-        <view class="cu-item" wx:if="{{user.isCard===false}}">
-            <view class="title">身份认证</view>
-            <text class="cu-btn bg-mauve light text-center round">未认证</text>
-            <button bindtap="isCard" class="cu-btn bg-green shadow round">点击认证</button>
-        </view>
-        <view class="cu-item" wx:else>
-            <view class="title">身份认证</view>
-            <text class="cu-btn bg-green text-center light round ">已认证</text>
-        </view>
-
-        &lt;!&ndash;学生认证&ndash;&gt;
-        <view class="cu-item" wx:if="{{user.isStudent===false}}">
-            <view class="title">学生认证</view>
-            <text class="cu-btn bg-mauve text-center light round ">未认证</text>
-            <button bindtap="isStudent" class="cu-btn bg-green shadow round">点击认证</button>
-        </view>
-        <view class="cu-item" wx:else>
-            <view class="title">学生认证</view>
-            <text class="cu-btn bg-green text-center light round ">已认证</text>
-        </view>
-    -->
     <view class="cu-item">
         <view class="title">头像昵称</view>
         <button class="cu-btn bg-green text-center light round" bindtap="getUserProfile">一键获取</button>
@@ -55,27 +31,50 @@
             <image src="{{user.avatarUrl}}" class="cu-avatar round"></image>
         </view>
     </view>
-    <!--
-        &lt;!&ndash;手机号&ndash;&gt;
-        <view class="cu-item">
-            <view class="content">
-                <text class="cuIcon-phone text-orange"></text>
-                <text class="text-grey">手机号</text>
-            </view>
-            <view class="action">
-                <view class="cu-capsule radius">
-                    <view class="cu-tag bg-blue">
-                        +86
-                    </view>
-                    <input class="cu-tag line-blue" value="{{phone}}"></input>
-                    <view class="cu-tag line-blue">
-                        中国大陆
-                    </view>
+</view>
+
+<view class="cu-bar"></view>
+<view class="cu-list menu sm-border card-menu margin-top margin-bottom">
+    <!--身份认证-->
+    <view class="cu-item" wx:if="{{isCard===false}}">
+        <view class="title">身份认证</view>
+        <text class="cu-btn bg-mauve light text-center round">未认证</text>
+        <button bindtap="isCard" class="cu-btn bg-green shadow round">点击认证</button>
+    </view>
+    <view class="cu-item" wx:else>
+        <view class="title">身份认证</view>
+        <text class="cu-btn bg-green text-center light round ">已认证</text>
+    </view>
+
+    <!--学生认证-->
+    <view class="cu-item" wx:if="{{isStudent===false}}">
+        <view class="title">学生认证</view>
+        <text class="cu-btn bg-mauve text-center light round ">未认证</text>
+        <button bindtap="isStudent" class="cu-btn bg-green shadow round">点击认证</button>
+    </view>
+    <view class="cu-item" wx:else>
+        <view class="title">学生认证</view>
+        <text class="cu-btn bg-green text-center light round ">已认证</text>
+    </view>
+
+    <!--手机号-->
+    <view class="cu-item">
+        <view class="content">
+            <text class="cuIcon-phone text-orange"></text>
+            <text class="text-grey">手机号</text>
+        </view>
+        <view class="action">
+            <view class="cu-capsule radius">
+                <view class="cu-tag bg-blue">
+                    +86
+                </view>
+                <input class="cu-tag line-blue" value="{{phone}}"></input>
+                <view class="cu-tag line-blue">
+                    中国大陆
                 </view>
             </view>
         </view>
-        -->
-
+    </view>
 </view>
 <view class="text-center">
     <button class="cu-btn bg-brown round" bindtap="isSubmit">

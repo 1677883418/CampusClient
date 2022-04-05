@@ -9,7 +9,7 @@
         <view class="cu-item shadow text-center">
             <view class="text-xl">
                 <text class="cuIcon-edit text-purple"></text>
-                <text class=" text-grey">   {{dynamicText.length}}/1000 字</text>
+                <text class=" text-grey"> {{dynamicText.length}}/1000 字</text>
             </view>
             <text>✒纸短情长✒</text>
         </view>
@@ -22,7 +22,7 @@
         <view class="cu-item shadow">
             <view class="text-xl">
                 <text class="cuIcon-pic text-orange"></text>
-                <text class=" text-grey">   {{imgList.length}}/4    张</text>
+                <text class=" text-grey"> {{imgList.length}}/4 张</text>
             </view>
             <text>📷分享美好生活📷</text>
         </view>
@@ -52,3 +52,9 @@
         </view>
     </view>
 </form>
+        <!--加载中-->
+<view class='cu-load load-modal' wx:if="{{loadModal.flag}}">
+    <!--     <view class='cuIcon-emojifill text-orange'></view>-->
+    <view>{{loadModal.image}}</view>
+    <view class='gray-text'>{{loadModal.text}}</view>
+</view>

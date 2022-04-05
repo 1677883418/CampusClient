@@ -1,23 +1,23 @@
-<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
     <view slot="backText">首页</view>
     <view slot="content">交友</view>
 </cu-custom>
 <scroll-view scroll-y class="scrollPage">
     <!-- 动态 -->
     <view class="cu-card dynamic margin-bottom-xl col-2">
-        <view class="cu-item shadow " wx:for="{{dynamic}}" wx:key="{{index}}" bindtap="ViewImage"
-              data-dynamic-image="{{item.dynamicImage}}">
+        <view class="cu-item shadow " wx:for="{{dynamic}}" wx:key="{{index}}"
+              data-dynamic-image="{{item.dynamicImages}}">
             <view class="cu-list menu-avatar">
                 <!-- 信息栏 -->
                 <view class="cu-item">
                     <!-- 头像 -->
-                    <view class="cu-avatar round lg" style="background-image:url({{item.avatarUrl}});"></view>
+                    <view class="cu-avatar round lg" style="background-image:url({{item.user.avatarUrl}});"></view>
                     <!-- 昵称 -->
                     <view class="content flex-sub">
                         <view>
                             <view class="cuIcon-male text-blue" wx:if="{{item.sex}}"></view>
                             <view class="cuIcon-female text-red" wx:else></view>
-                            <view class="text-grey">{{item.nikeName}}</view>
+                            <view class="text-grey">{{item.user.nickName}}</view>
                         </view>
                         <!-- 时间 -->
                         <view class="text-gray text-sm flex justify-start">
@@ -28,16 +28,19 @@
                 </view>
             </view>
             <!-- 文本框 -->
-            <view class="text-content text-center">
+            <view class="text-center ">
                 <text class=" text-Abc">{{item.dynamicText}}</text>
             </view>
             <!-- 图片展示 -->
             <view class="grid flex-sub padding-lr">
-                <view class="grid col-2 grid-square flex-sub">
-                    <view class="bg-img" wx:for="{{item.dynamicImage}}"  lazy-load="true" wx:key="{{index}}"
-                          bindtap="ViewImage"
-                          data-url="{{item}}">
-                        <image class="square-img" src='{{item}}?x-oss-process=style/compress' mode='aspectFill'></image>
+                <view class="grid col-2 grid-square flex-sub ">
+                    <view class=" bg-img" wx:for="{{item.dynamicImages}}" lazy-load="true" wx:key="{{index}}"
+                           bindtap="ViewImage"
+                           data-item="{{item}}"
+                           wx:if="{{item.imageUrl!==null}}"
+                           mode='aspectFill'>
+                        <image class="square-img" src='{{item.imageUrl}}?x-oss-process=style/compress'
+                               mode='aspectFill'></image>
                     </view>
                 </view>
             </view>
@@ -49,6 +52,12 @@
     </view>
     <view class="cu-tabbar-height"></view>
 </scroll-view>
+        <!--加载中-->
+<view class='cu-load load-modal' wx:if="{{loadModal.flag}}">
+    <!--     <view class='cuIcon-emojifill text-orange'></view>-->
+    <view>{{loadModal.image}}</view>
+    <view class='gray-text'>{{loadModal.text}}</view>
+</view>
         <!-- &lt;!&ndash;任务栏&ndash;&gt;
                 <view class="cu-bar tabbar bg-white action shadow foot">
                     &lt;!&ndash;动态&ndash;&gt;

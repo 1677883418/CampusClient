@@ -1,14 +1,23 @@
 <!-- <cu-custom bgColor="bg-blue" isBack="{{false}}"> -->
-<!-- <view slot="content">天大校园墙</view> -->
-<!-- </cu-custom> -->
+        <!-- <view slot="content">天大校园墙</view> -->
+        <!-- </cu-custom> -->
 <scroll-view scroll-y class="scrollPage">
     <image src='/images/HomeBg.png' mode='widthFix' class='png shadow-warp' style='width:100%;height:486rpx'></image>
     <view class='nav-list margin-top'>
-        <navigator open-type="navigate" hover-class='none' url="/pages/home/item/{{item.name}}/bar/bar" class="nav-li bg-{{item.color}}" wx:for="{{elements}}">
+        <navigator open-type="navigate" hover-class='none' url="{{item.url}}"
+                   target="{{item.target}}" app-id="{{item.appId}}" version="release"
+                   class="nav-li bg-{{item.color}}" wx:for="{{elements}}">
             <view class="nav-title">{{item.title}}</view>
             <view class="nav-name">{{item.name}}</view>
             <text class='cuIcon-{{item.icon}}'></text>
         </navigator>
+        <!--        &lt;!&ndash;灵洋帮跳转&ndash;&gt;
+                <navigator open-type="navigate" hover-class='none' class="nav-li bg-pink" target="miniProgram"
+                           app-id="wx22d4ff611a9b55e4" version="release">
+                    <view class="nav-title">帮助</view>
+                    <view class="nav-name">{{item.name}}</view>
+                    <text class='cuIcon-favorfill'></text>
+                </navigator>-->
     </view>
     <view class='cu-tabbar-height'></view>
 </scroll-view>

@@ -5,8 +5,9 @@ Page({
      * 页面的初始数据
      */
     data: {
+        isStudent:false,
         phone: '预留接口,暂无实际意义',
-        user: wx.getStorageSync('user')
+        user: wx.getStorageSync('user'),
     },
     getUserProfile(e) {
         // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认
@@ -32,13 +33,13 @@ Page({
 
     isCard: function () {
         this.setData({
-            'user.isCard': true
+            isCard: true
         })
     },
     isStudent() {
         wx.showModal({
             title: '😷',
-            content: "🌸暂不开放～🌸\r\n这个接口是预留着对接学校教务系统的哟～",
+            content: "🌸暂不开放～🌸\r\n该接口是预留着对接学校教务系统的哟～",
             showCancel: false
         })
     },

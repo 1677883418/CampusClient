@@ -12,7 +12,7 @@ Component({
                 user: wx.getStorageSync("user")
             })
             // 在组件实例进入页面节点树时执行
-            if (wx.getStorageSync("user").nickName === '💜无名之辈💛') {
+            if (wx.getStorageSync("user").nickName === '💜无名之辈💛' && wx.getStorageSync("user").avatarUrl === 'https://z3.ax1x.com/2021/11/09/ItIbm4.jpg') {
                 wx.showModal({
                     title: '😜',
                     content: '您还没有注册哟~\r\n是否现在注册？',
@@ -21,7 +21,7 @@ Component({
                     success(res) {
                         if (res.confirm) {
                             wx.navigateTo({
-                                url: "../../pages/home/mine/login/login"
+                                url: "/pages/home/mine/login/login"
                             })
                         } else if (res.cancel) {
                             wx.showModal({
