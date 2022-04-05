@@ -1,0 +1,187 @@
+/**index.wxss**/
+.title{
+  width: 90%;
+  height: 40px;
+  margin:10px auto;
+  font-weight: bold;
+  font-family: "微软雅黑";
+  font-size: 26px;
+}
+
+.int{
+  width: 90%;
+  margin:10px auto;
+  font-size: 14px;
+  font-family: "微软雅黑";
+  color: #666;
+}
+
+.textarea{
+  width: 90%;
+  height: 180px;
+  border:none;
+  border-radius: 4%;
+  margin:10px auto 0;
+  background: #fff;
+  padding: 15px 15px;
+  font-size: 15px;
+}
+
+.phcolor{
+    color:#7C7C7C;
+    margin: 10px 10px;
+    font-size: 15px;
+    font-family: "微软雅黑";
+}
+
+.ff-hv{
+  width: 90%;
+  height: 25px;
+  background: #fff;
+  display: block;
+  margin:0 auto;
+  color: #C9C9C9;
+  font-size: 15px;
+  text-align: right;
+  border-right:0px solid #fff;
+  box-sizing: border-box;
+}
+
+.imgfile{
+  width: 90%;
+  height: 20px;
+  margin: 10px auto;
+  color: #C9C9C9;
+  font-family: "微软雅黑";
+  font-size: 13px;
+}
+
+.imgselect{
+  width: 80px;
+  height: 80px;
+  border:1px solid #DCDCDC;
+  text-align: center;
+  line-height: 80px;
+  font-size: 100px;
+  font-weight: light;
+  /* background: url(http://wxpad.cn/yunpan/cdn/imgsrc/1523702768.png); */
+}
+
+.imgselect image{
+  width: 80px;
+  height: 80px;
+}
+
+.btn{
+  width: 80%;
+  margin-top: 280rpx;
+  background-color:#ffcc66;
+  color: white;
+  border-radius: 98rpx; 
+}
+
+.kefu{
+  width: 30px;
+  height: 20px;
+  display: block;
+  margin:40px auto;
+}
+
+.footer{
+  width: 125px;
+  height: 30px;
+  margin:10px auto;
+}
+
+.footer image{
+  width: 125px;
+  height: 30px;
+}
+
+.xgurl{
+  width: 90%;
+  height: 45px;
+  padding: 0px 5px;
+  border-radius: 5%;
+  margin:10px auto;
+  background: #fff;
+}
+
+.view-contain-ti {
+  display: flex;
+  height: 40px;
+  margin: 20px;
+  border: 3rpx solid #DCDCDC;
+  border-radius: 18rpx;
+}
+
+.text-ti {
+  position: absolute;
+  font-size: 12px;
+  background: white;
+  margin: -10px 0 0 10px;
+  padding: 0 5px;
+  color: rgb(144, 147, 167);
+}
+
+.input1 {
+  margin:  auto 10px;
+  width: 345px;
+  height: 30px;
+}
+
+
+.xgurl-phcolor{
+  color:#7C7C7C;
+  font-size: 15px;
+  text-indent:12.5px;
+  font-family: "微软雅黑";
+}
+
+.u-buttom{
+width: 110px;
+height: 38px;
+font-weight: 700;
+font-size: 15px;
+margin-left: 19px;
+border-radius: 8px;
+background-color:#fff;
+color: 	#ffcc66;
+box-shadow:1px 1px 8px 1px#DCDCDC;
+}
+
+.conts{
+width:90%;
+height: auto;
+/* border: 1rpx solid red; */
+position:relative;
+padding-bottom:50rpx;
+margin:0 auto;
+
+}
+.areas{
+width:100%;
+height:400rpx;
+font-size: 30rpx;
+text-indent: 28rpx;
+/* border: 1rpx solid gainsboro; */
+padding-top: 30rpx;
+margin: 0 auto;
+border-radius: 18rpx;
+overflow: hidden;   
+position: relative; 
+}
+.currentWordNumber{
+font-size: 28rpx;
+color: gray;
+position: absolute;
+right:10rpx;
+bottom:10rpx;
+}
+.hint{
+ font-size: 28rpx;
+ position: absolute;
+ left:20rpx;
+ bottom:10rpx;
+ color: #FF6600;
+}

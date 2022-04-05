@@ -1,0 +1,28 @@
+<view>
+    <view class="title">发布帖子</view>
+    <form bindsubmit="formSubmit" bindreset="formReset">
+        <button class="u-buttom" bindtap="click" data-value="{{value}}">#{{value||'添加类目'}}</button>
+        <view class="view-contain-ti">
+            <text class="text-ti">标题</text>
+            <input type="url" name="biaoti" placeholder-class="xgurl-phcolor" model:value="{{title}}"
+                class="input1"></input>
+        </view>
+        <view class="conts">
+            <textarea name="content" class="areas" placeholder='点击输入你要发布的内容......' placeholder-class="phcolor"
+                minlength="{{min}}" maxlength="{{max}}" bindinput="inputs"></textarea>
+            <text class="hint">{{texts}}</text>
+            <text class="currentWordNumber">{{currentWordNumber|0}}/{{max}}</text>
+        </view>
+        <!--上传并显示图片  -->
+        <view class="imgfile">图片上传</view>
+        <view style="width:90%;height:87px;margin:0 auto 30px;">
+            <view bindtap="uploadimg" class="imgselect">
+                <block wx:for="{{imgList}}" wx:key="index">
+                    <image src="{{item}}"></image>
+                </block>
+            </view>
+        </view>
+        <!--提交按钮  -->
+        <button formType="submit" class="btn">发布</button>
+    </form>
+</view>
